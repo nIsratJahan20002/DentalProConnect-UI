@@ -7,10 +7,11 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { NgSelectModule } from '@ng-select/ng-select'
 import { HttpClientModule } from '@angular/common/http'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
