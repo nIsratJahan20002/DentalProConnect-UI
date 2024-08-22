@@ -1,28 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated Login Form</title>
-  <link rel="stylesheet" href="login.component.css">
-</head>
-<body>
-  <div class="center">
-    <h1>Login</h1>
-    <form method="post">
-      <!-- this field for Username -->
-      <div class="txt_field">
-        <input type="text" required>
-        <label>Username</label>
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="row">
+    <h1 class="mb-5 text-center">Medical Pro Connect</h1>
+    <div class="form-group">
+      <div class="width300 mb-3">
+        <app-text-input
+          placeHolder="Email"
+          [text]="emailText"
+          type="email"
+          [showError]="submitted && emailText == ''"
+          [required]="true"
+          errorMessage="Email is required."
+          (textChange)="onEmailChange($event)"
+        ></app-text-input>
       </div>
-      <!-- this field for password -->
-      <div class="txt_field">
-        <input type="password" required>
-        <label>Password</label>
+      <div class="width300 mb-3">
+        <app-text-input
+          placeHolder="Password"
+          [text]="passwordText"
+          [type]="passwordInputType"
+          [showError]="submitted && passwordText == ''"
+          [required]="true"
+          errorMessage="Password is required."
+          (textChange)="onPasswordChange($event)"
+        ></app-text-input>
+        <div class="mt-2 mb-3">
+          <app-checkbox
+            text="Show Password"
+            (isCheckedChange)="showPassword($event)"
+          ></app-checkbox>
+        </div>
       </div>
-      <div class="pass">Forgot Password?</div>
-      <input type ="submit"value="Login">
-      <div class="signup_link">Not a member?<a href="#"> Signup</a></div>
+      <div class="width300 mb-3 text-center">
+        <app-button
+          [buttonType]="buttonType"
+          (buttonClicked)="Submit()"
+          text="Submit"
+        ></app-button>
+      </div>
+    </div>
   </div>
-</body>
-</html>
+</div>
