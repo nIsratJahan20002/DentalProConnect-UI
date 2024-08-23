@@ -15,6 +15,7 @@ export class LoginComponent {
   passwordInputType = 'password'
   submitted = false
   buttonType = ButtonType.SUBMIT
+  test = ''
 
   onEmailChange(email: string) {
     this.emailText = email
