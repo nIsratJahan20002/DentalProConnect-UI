@@ -14,7 +14,7 @@ jobs:
       # Install dependencies and build the project
       - name: Install Dependencies and Build
         run: npm ci && npm run build
-        working-directory: /medicalProConnect  # Update to your actual project folder structure
+        working-directory: ./medicalProConnect  # Update to your actual project folder structure
 
       # Deploy to Firebase Hosting
       - uses: FirebaseExtended/action-hosting-deploy@v0
