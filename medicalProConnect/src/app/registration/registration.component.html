@@ -1,0 +1,93 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow-lg w-100" style="max-width: 600px;">
+    <h2 class="text-center mb-4">Registration</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-check-label">
+          <input type="radio" formControlName="userType" value="Patient" class="form-check-input" (change)="onUserTypeChange('Patient')"> Patient
+        </label>
+        <label class="form-check-label ms-3">
+          <input type="radio" formControlName="userType" value="Doctor" class="form-check-input" (change)="onUserTypeChange('Doctor')"> Doctor
+        </label>
+      </div>
+
+      <!-- Patient Fields -->
+      <div *ngIf="isPatient">
+        <div class="row mb-3">
+          <div class="col">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName"placeholder="firstName">
+          </div>
+          <div class="col">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName"placeholder="lastName">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="dateOfBirth" class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth"placeholder="dateOfBirth">
+        </div>
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control" id="address" formControlName="address"placeholder="address">
+        </div>
+        <div class="mb-3">
+          <label for="contact" class="form-label">Contact</label>
+          <input type="text" class="form-control" id="contact" formControlName="contact"placeholder="+88">
+        </div>
+        <div class="mb-3">
+          <label for="emergencyContact" class="form-label">Emergency Contact</label>
+          <input type="text" class="form-control" id="emergencyContact" formControlName="emergencyContact"placeholder="+88">
+        </div>
+      </div>
+
+      <!-- Doctor Fields -->
+      <div *ngIf="isDoctor">
+        <div class="row mb-3">
+          <div class="col">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName" formControlName="firstName"placeholder="firstName">
+          </div>
+          <div class="col">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" formControlName="lastName"placeholder="lastName">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="company" class="form-label">Company</label>
+          <input type="text" class="form-control" id="company" formControlName="company"placeholder="company">
+        </div>
+        <div class="mb-3">
+          <label for="doctorRegistrationNumber" class="form-label">Doctor Registration Number</label>
+          <input type="text" class="form-control" id="doctorRegistrationNumber" formControlName="doctorRegistrationNumber"placeholder="doctorRegistrationNumber">
+        </div>
+        <div class="mb-3">
+          <label for="address1" class="form-label">Address 1</label>
+          <input type="text" class="form-control" id="address1" formControlName="address1"placeholder="address1">
+        </div>
+        <div class="mb-3">
+          <label for="address2" class="form-label">Address 2</label>
+          <input type="text" class="form-control" id="address2" formControlName="address2"placeholder="address2">
+        </div>
+        <div class="mb-3">
+          <label for="address3" class="form-label">Address 3</label>
+          <input type="text" class="form-control" id="address3" formControlName="address3"placeholder="address3">
+        </div>
+        <div class="mb-3">
+          <label for="contact1" class="form-label">Contact 1</label>
+          <input type="text" class="form-control" id="contact1" formControlName="contact1"placeholder="+88">
+        </div>
+        <div class="mb-3">
+          <label for="contact2" class="form-label">Contact 2</label>
+          <input type="text" class="form-control" id="contact2" formControlName="contact2"placeholder="+88">
+        </div>        
+        <div class="mb-3">
+          <label for="contact3" class="form-label">Contact 3</label>
+          <input type="text" class="form-control" id="contact3" formControlName="contact3"placeholder="+88">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Register</button>
+    </form>
+  </div>
+</div>

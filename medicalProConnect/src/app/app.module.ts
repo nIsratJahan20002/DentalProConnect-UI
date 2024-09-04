@@ -11,10 +11,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { LoginComponent } from './login/login.component'
 import { TextInputComponent } from './generic-components/text-input/text-input.component';
 import { ButtonComponent } from './generic-components/button/button.component';
-import { CheckboxComponent } from './generic-components/checkbox/checkbox.component'
+import { CheckboxComponent } from './generic-components/checkbox/checkbox.component';
+import { RegistrationComponent } from './registration/registration.component'
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, TextInputComponent, ButtonComponent, CheckboxComponent],
+  declarations: [AppComponent, LoginComponent, TextInputComponent, ButtonComponent, CheckboxComponent, RegistrationComponent],
   imports: [
     BrowserModule,
     FormsModule,
