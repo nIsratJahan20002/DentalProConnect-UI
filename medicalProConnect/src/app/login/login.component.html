@@ -30,10 +30,11 @@
           ></app-checkbox>
         </div>
       </div>
+      <p class="text-center">Don't have account? <a routerLink="/registration">Register here</a></p>     
       <div class="width300 mb-3 text-center ">
         <app-button
           [buttonType]="buttonType"
-          (buttonClicked)="Submit()"
+          (buttonClicked)="Submit()"class="btn btn-primary btn-block"
           text="Submit"
         ></app-button>
       </div>
