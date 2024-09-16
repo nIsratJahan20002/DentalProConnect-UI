@@ -1,19 +1,25 @@
+// registration.component.ts
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Registration } from './registration.model';
-// import { Registration } from './registration.model.ts';
+import { RegistrationService } from '../services/registration.service';
+import { UserDto } from '../models/user.model';
+import { Registration } from '../models/registration.model';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.css']
+  styleUrls: ['./registration.component.css'],
 })
 export class RegistrationComponent {
   registrationForm: FormGroup;
   isPatient: boolean = false;
   isDoctor: boolean = false;
+  registeredUser: UserDto | null = null;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private registrationService: RegistrationService
+  ) {
     this.registrationForm = this.fb.group({
       userType: ['', Validators.required],
       firstName: ['', Validators.required],
@@ -29,7 +35,7 @@ export class RegistrationComponent {
       address3: [''],
       contact1: [''],
       contact2: [''],
-      contact3: ['']
+      contact3: [''],
     });
   }
 
@@ -41,7 +47,8 @@ export class RegistrationComponent {
   onSubmit() {
     if (this.registrationForm.valid) {
       const registrationData: Registration = this.registrationForm.value;
-      console.log('Registration Data:', registrationData);
+      this.registeredUser =
+        this.registrationService.registerUser(registrationData);
     }
   }
 }
